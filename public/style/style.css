@@ -1,0 +1,101 @@
+@import url("fonts.css");
+* {
+  font-family: 'OpenSans-Regular';
+  color: #4D4F5C;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+.half-splitted {
+  display: flex;
+  justify-content: space-between;
+  vertical-align: middle;
+  width: 100%;
+}
+
+button.square-like {
+  outline: none;
+  border-radius: 4px;
+  border: 1px solid #4D4F5C;
+  background: white;
+  padding: 10px 0;
+  transition: 0.3s;
+}
+
+button.square-like:hover {
+  cursor: pointer;
+  color: white;
+  background: #4D4F5C;
+  box-shadow: none;
+}
+
+button.square-like.yellow {
+  background: #FFEB00;
+  border-color: transparent;
+}
+
+button.square-like.yellow:hover {
+  border-color: #4d4f5c;
+  color: #4D4F5C;
+}
+
+input.line-based {
+  font-family: 'ProximaNova-Regular', sans-serif;
+  font-size: 16px;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #E9E9EF;
+  padding-left: 10px;
+  width: 100%;
+  transition: 0.2s;
+  color: #595959;
+}
+
+input.line-based::-webkit-input-placeholder {
+  color: #D4D4D4;
+}
+
+input.line-based:-moz-placeholder {
+  color: #D4D4D4;
+}
+
+input.line-based::-moz-placeholder {
+  color: #D4D4D4;
+}
+
+input.line-based:-ms-input-placeholder {
+  color: #D4D4D4;
+}
+
+input.line-based:focus {
+  outline: none;
+  border-color: #626262;
+}
+
+input.line-based:focus:-webkit-input-placeholder {
+  color: #9D9C9C;
+}
+
+input.line-based:focus:-moz-placeholder {
+  color: #9D9C9C;
+}
+
+input.line-based:focus:-moz-placeholder {
+  color: #9D9C9C;
+}
+
+input.line-based:focus:-ms-input-placeholder {
+  color: #9D9C9C;
+}
+
+input.line-based:invalid {
+  outline: none;
+  box-shadow: none;
+}
+/*# sourceMappingURL=style.css.map */
