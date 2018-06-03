@@ -31,7 +31,7 @@ button.square-like
     background: white
     padding: 10px 0
     transition: 0.3s
-    &:hover
+    &:hover, &:focus, &:active
         cursor: pointer
         color: white
         background: #4D4F5C
@@ -39,13 +39,14 @@ button.square-like
     &.yellow
         background: #FFEB00
         border-color: transparent
-        &:hover
+        &:hover, &:focus, &:active
             border-color: #4d4f5c
             color: #4D4F5C
 
 
 
 input.line-based
+    box-sizing: border-box
     font-family: 'ProximaNova-Regular', sans-serif
     font-size: 16px
     border: none
@@ -77,3 +78,45 @@ input.line-based
     &:invalid
       outline: none
       box-shadow: none
+
+
+
+.form-group
+  position: relative
+  margin-bottom: 30px
+  &:not(.checkbox)
+    padding: 5px 0
+    label
+      pointer-events: none
+  label
+    color: #43425D
+    transition: 0.3s
+  &.floating-label
+    label
+      position: absolute
+      left: 10px
+      top: 0px
+      z-index: 1000
+    input
+      &:focus
+        & + label
+          font-size: 12px
+          top: -10px
+      &:valid + label
+          font-size: 12px
+          top: -10px
+  &.checkbox
+    input
+      margin-right: 10px
+    label, input
+      cursor: pointer
+
+
+
+.logo-text
+  font-family: 'Houchka-Bold', sans-serif
+  color: #43425D
+  text-align: center
+  text-transform: uppercase
+  letter-spacing: 5px
+  margin: 0

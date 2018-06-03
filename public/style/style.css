@@ -28,7 +28,7 @@ button.square-like {
   transition: 0.3s;
 }
 
-button.square-like:hover {
+button.square-like:hover, button.square-like:focus, button.square-like:active {
   cursor: pointer;
   color: white;
   background: #4D4F5C;
@@ -40,12 +40,13 @@ button.square-like.yellow {
   border-color: transparent;
 }
 
-button.square-like.yellow:hover {
+button.square-like.yellow:hover, button.square-like.yellow:focus, button.square-like.yellow:active {
   border-color: #4d4f5c;
   color: #4D4F5C;
 }
 
 input.line-based {
+  box-sizing: border-box;
   font-family: 'ProximaNova-Regular', sans-serif;
   font-size: 16px;
   border: none;
@@ -97,5 +98,57 @@ input.line-based:focus:-ms-input-placeholder {
 input.line-based:invalid {
   outline: none;
   box-shadow: none;
+}
+
+.form-group {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.form-group:not(.checkbox) {
+  padding: 5px 0;
+}
+
+.form-group:not(.checkbox) label {
+  pointer-events: none;
+}
+
+.form-group label {
+  color: #43425D;
+  transition: 0.3s;
+}
+
+.form-group.floating-label label {
+  position: absolute;
+  left: 10px;
+  top: 0px;
+  z-index: 1000;
+}
+
+.form-group.floating-label input:focus + label {
+  font-size: 12px;
+  top: -10px;
+}
+
+.form-group.floating-label input:valid + label {
+  font-size: 12px;
+  top: -10px;
+}
+
+.form-group.checkbox input {
+  margin-right: 10px;
+}
+
+.form-group.checkbox label, .form-group.checkbox input {
+  cursor: pointer;
+}
+
+.logo-text {
+  font-family: 'Houchka-Bold', sans-serif;
+  color: #43425D;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  margin: 0;
 }
 /*# sourceMappingURL=style.css.map */
