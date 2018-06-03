@@ -1,12 +1,12 @@
 <template>
   <div class="authorization">
     <div class="wrapper">
-      <h1 class="logo-title">Ranty</h1>
+      <h1 class="logo-text">Ranty</h1>
       <p class="sub-title">Добро пожаловать! Войдите или зарегистрируйтесь.</p>
       <form class="form">
         <div class="form-group floating-label">
           <input type="text" class="line-based" required />
-          <label>Email или телефон</label>
+          <label>Email</label>
         </div>
         <div class="form-group floating-label">
           <input type="password" class="line-based" required />
@@ -36,14 +36,6 @@ export default {
 </script>
 
 <style lang="sass">
-.logo-title
-  font-family: 'Houchka-Bold', sans-serif
-  color: #43425D
-  text-align: center
-  text-transform: uppercase
-  letter-spacing: 5px
-  margin: 0
-
 .authorization
   display: flex
   justify-content: center
@@ -55,37 +47,33 @@ export default {
     text-align: center
     margin: 15px 0 30px 0
   .form
-    width: 95%
-    margin: 15px auto 0 auto
     button
       width: 47%
 
-.form-group
-  position: relative
-  margin-bottom: 30px
-  &:not(.checkbox)
-    padding: 5px 0
-    label
-      pointer-events: none
-  label
-    color: #43425D
-    transition: 0.3s
-  &.floating-label
-    label
-      position: absolute
-      left: 10px
-      top: 0px
-    input
-      &:focus
-        & + label
-          font-size: 10px
-          top: -7px
-      &:valid + label
-          font-size: 10px
-          top: -7px
-  &.checkbox
-    input
-      margin-right: 10px
-    label, input
-      cursor: pointer
+@media (max-width: 500px)
+  .authorization
+    .half-splitted:last-of-type
+      flex-direction: column
+      justify-content: flex-start
+      align-items: center
+      button:last-of-type
+        margin-top: 15px
+    .form
+      *
+        font-size: 14px
+      button
+        &.yellow
+          width: 80%
+        &:not(.yellow)
+          border: none
+
+@media (max-width: 450px)
+  .authorization .form
+    padding: 0 15px
+
+
+@media (min-height: 1000px)
+  .authorization
+    .wrapper
+      transform: scale(1.6)
 </style>
