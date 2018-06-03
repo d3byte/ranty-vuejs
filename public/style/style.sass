@@ -21,15 +21,21 @@ a
     justify-content: space-between
     vertical-align: middle
     width: 100%
+    &.vertical
+        flex-direction: column
+        align-items: center
+        justify-content: flex-start
 
 
 
-button.square-like
+button.square-like, a.square-like
+    display: block
     outline: none
     border-radius: 4px
     border: 1px solid #4D4F5C
     background: white
     padding: 10px 0
+    text-align: center
     transition: 0.3s
     &:hover, &:focus, &:active
         cursor: pointer
@@ -102,7 +108,7 @@ input.line-based
         & + label
           font-size: 12px
           top: -10px
-      &:valid + label
+      &:valid + label, &.static + label
           font-size: 12px
           top: -10px
   &.checkbox
