@@ -39,10 +39,5 @@ export default {
       remember: false
     }
   },
-  methods: {
-    navigateToSignup() {
-      this.$router.push('/signup')
-    }
-  }
 }
 </script>
