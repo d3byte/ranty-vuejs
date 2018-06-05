@@ -4,6 +4,7 @@ import Signin from './pages/Signin.vue'
 import Signup from './pages/Signup.vue'
 import Home from './pages/Home.vue'
 import Page404 from './pages/Page404.vue'
+import Recovery from './pages/Recovery.vue'
 
 
 Vue.use(Router)
@@ -25,6 +26,11 @@ export default new Router({
       path: '/signup',
       name: 'Регистрация',
       component: Signup
+    },
+    {
+      path: '/recovery',
+      name: 'Восстановление пароля',
+      component: Recovery
     },
     {
       path: '*',
