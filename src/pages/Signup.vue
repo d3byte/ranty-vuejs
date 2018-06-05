@@ -1,5 +1,5 @@
 <template>
-  <div class="authorization">
+  <div class="vertical-center authorization">
     <div class="wrapper">
       <h1 class="logo-text">Ranty</h1>
       <p class="sub-title">Регистрация</p>
