@@ -35,7 +35,7 @@
           <label for="agree-eula">Согласен с лицензионным соглашением</label>
         </div>
         <div class="half-splitted vertical">
-          <button class="square-like yellow">Войти</button>
+          <button class="square-like yellow">Зарегистрироваться</button>
           <router-link to="/signin">Уже есть аккаунт? Войти</router-link>
         </div>
       </form>
