@@ -17,7 +17,7 @@
             <input type="checkbox" id="remember-me" v-model="remember" />
             <label for="remember-me">Запомнить меня</label>
           </div>
-          <router-link to="/recovery">Забыл пароль</router-link>
+          <router-link id="recovery" to="/recovery">Забыл пароль</router-link>
         </div>
         <div class="half-splitted">
           <button class="square-like yellow">Войти</button>
@@ -41,3 +41,10 @@ export default {
   },
 }
 </script>
+
+<style lang="sass" scoped>
+a#recovery
+  &:hover
+    text-decoration: underline
+
+</style>
