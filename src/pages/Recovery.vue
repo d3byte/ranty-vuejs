@@ -8,7 +8,7 @@
           <input type="email" :class="'line-based ' + (email.length > 0 ? 'static' : '')" v-model="email" required />
           <label>Email</label>
         </div>
-        <button class="square-like yellow">Отправить</button>
+        <button class="square-like yellow" @click="submit">Отправить</button>
       </form>
     </div>
     <h3 v-else>Ссылка на изменение пароля была отправлена вам на почту</h3>
@@ -25,6 +25,11 @@ export default {
       success: false
     }
   },
+  methods: {
+    submit() {
+      this.success = true
+    }
+  }
 }
 </script>
 
