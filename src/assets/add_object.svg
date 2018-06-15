@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 43 36">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2, .cls-3 {
+        fill: #fff;
+      }
+
+      .cls-3 {
+        stroke: #fff;
+        stroke-width: 2px;
+      }
+    </style>
+  </defs>
+  <g id="Group_261" data-name="Group 261" transform="translate(-344 -1404.725)">
+    <g id="outline-location_city-24px" transform="translate(351 1404.725)">
+      <g id="Bounding_Boxes">
+        <path id="Path_1013" data-name="Path 1013" class="cls-1" d="M36,0H0V36H36Z"/>
+      </g>
+      <g id="Outline" transform="translate(4.5 3)">
+        <path id="Path_1014" data-name="Path 1014" class="cls-2" d="M12,15.5v-9L16.5,2,21,6.5v3h9v21H3v-15Zm12,12h3v-3H24Zm0-6h3v-3H24Zm0-6h3v-3H24Zm-9,12h3v-3H15Zm0-6h3v-3H15Zm0-6h3v-3H15Zm0-6h3v-3H15Zm-9,18H9v-3H6Zm0-6H9v-3H6Z" transform="translate(-3 -2)"/>
+      </g>
+    </g>
+    <g id="outline-add-24px" transform="translate(345 1410.961)">
+      <g id="Outline-2" data-name="Outline" transform="translate(0 0)">
+        <path id="Path_1016" data-name="Path 1016" class="cls-3" d="M17,11.857H11.857V17H10.143V11.857H5V10.143h5.143V5h1.714v5.143H17Z" transform="translate(-5 -5)"/>
+      </g>
+    </g>
+  </g>
+</svg>

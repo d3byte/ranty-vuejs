@@ -1,0 +1,19 @@
+<svg id="outline-local_atm-24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <g id="Bounding_Boxes">
+    <path id="Path_1011" data-name="Path 1011" class="cls-1" d="M0,0H50V50H0Z"/>
+  </g>
+  <g id="Outline" transform="translate(4.167 8.333)">
+    <path id="Path_1012" data-name="Path 1012" class="cls-2" d="M20.75,31.083h4.167V29H27a2.089,2.089,0,0,0,2.083-2.083v-6.25A2.089,2.089,0,0,0,27,18.583H20.75V16.5h8.333V12.333H24.917V10.25H20.75v2.083H18.667a2.089,2.089,0,0,0-2.083,2.083v6.25a2.089,2.089,0,0,0,2.083,2.083h6.25v2.083H16.583V29H20.75ZM39.5,4H6.167A4.135,4.135,0,0,0,2.021,8.167L2,33.167a4.152,4.152,0,0,0,4.167,4.167H39.5a4.152,4.152,0,0,0,4.167-4.167v-25A4.152,4.152,0,0,0,39.5,4Zm0,29.167H6.167v-25H39.5Z" transform="translate(-2 -4)"/>
+  </g>
+</svg>

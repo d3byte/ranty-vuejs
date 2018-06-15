@@ -1,0 +1,19 @@
+<svg id="outline-assignment_late-24px" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+      }
+    </style>
+  </defs>
+  <g id="Bounding_Boxes">
+    <path id="Path_1005" data-name="Path 1005" class="cls-1" d="M0,0H50V50H0Z"/>
+  </g>
+  <g id="Outline" transform="translate(6.25 2.083)">
+    <g id="Group_259" data-name="Group 259">
+      <rect id="Rectangle_1084" data-name="Rectangle 1084" width="4.167" height="4.167" transform="translate(16.667 29.167)"/>
+      <rect id="Rectangle_1085" data-name="Rectangle 1085" width="4.167" height="12.5" transform="translate(16.667 12.5)"/>
+      <path id="Path_1006" data-name="Path 1006" d="M36.333,5.167H27.625a6.225,6.225,0,0,0-11.75,0H7.167a3.65,3.65,0,0,0-.833.083,4.21,4.21,0,0,0-3,2.479A4.013,4.013,0,0,0,3,9.333V38.5a4.274,4.274,0,0,0,.333,1.625,4.415,4.415,0,0,0,.9,1.333,4.183,4.183,0,0,0,2.1,1.146,5.407,5.407,0,0,0,.833.063H36.333A4.179,4.179,0,0,0,40.5,38.5V9.333A4.179,4.179,0,0,0,36.333,5.167ZM21.75,4.646a1.563,1.563,0,1,1-1.562,1.563A1.574,1.574,0,0,1,21.75,4.646ZM36.333,38.5H7.167V9.333H36.333Z" transform="translate(-3 -1)"/>
+    </g>
+  </g>
+</svg>
