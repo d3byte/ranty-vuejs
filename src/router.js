@@ -5,7 +5,7 @@ import Signup from './pages/Signup.vue'
 import Home from './pages/Home.vue'
 import Page404 from './pages/Page404.vue'
 import Recovery from './pages/Recovery.vue'
-import AddUnit from './pages/AddUnit.vue'
+import Room from './pages/Room.vue'
 
 Vue.use(Router)
 
@@ -33,9 +33,9 @@ export default new Router({
       component: Recovery
     },
     {
-      path: '/add-unit',
-      name: 'Добавить объект',
-      component: AddUnit
+      path: '/room',
+      name: 'Помещение',
+      component: Room
     },
     {
       path: '*',
