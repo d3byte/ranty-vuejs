@@ -1,13 +1,11 @@
 <template>
 <header>
     <div class="breadcrumbs">
-        <div class="breadcrumb">Помещение
+        <div class="breadcrumb" v-for="(breadcrumb, key) in breadcrumbs" :key="key" @click="() => routeTo(breadcrumb.path)">
+            {{ breadcrumb.name }}
             <i class="material-icons">keyboard_arrow_right</i>
         </div>
-        <div class="breadcrumb">
-            Управление
-            <i class="material-icons">keyboard_arrow_right</i>
-        </div>
+        
     </div>
     <nav>
         <i class="material-icons">person</i>
@@ -19,6 +17,20 @@
 <script>
 export default {
     name: 'ranty-header',
+    data() {
+        return {
+            breadcrumbs: {}
+        }
+    },
+    methods: {
+        routeTo(url) {
+            this.$router.push(url)
+        }
+    },
+    created() {
+        const { matched } = this.$route
+        this.breadcrumbs = matched
+    }
 }
 </script>
 
