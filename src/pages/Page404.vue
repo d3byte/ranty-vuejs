@@ -4,7 +4,7 @@
     <h1>Ошибка #404</h1>
     <h3>К сожалению, этой страницы не существует. <br/><br/>     Может быть, вы искали одну из этих страниц?</h3>
     <div class="routes">
-        <router-link v-for="(route, index) in suitableRoutes" :key={index} :to="route.path">{{ route.name }}</router-link>
+        <router-link v-for="(route, index) in suitableRoutes" :key="index" :to="route.path">{{ route.name }}</router-link>
     </div>
   </div>
 </template>
@@ -20,9 +20,9 @@ export default {
     created() {
         const { routes } = this.$router.options
         const { path } = this.$route
-        routes.map(route => {
+        routes.map((route, index) => {
             if (route.path.indexOf(path) !== -1 || path.indexOf(route.path) !== -1) {
-                return this.suitableRoutes.push(route)
+                return this.suitableRoutes.push({ ...route, key: index })
             }
         })
     }
