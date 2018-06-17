@@ -1,7 +1,7 @@
 <template>
 <section class="gray-background">
     <side-menu/>
-    <main class="add-unit">
+    <main class="room">
         <ranty-header/>
         <div class="wrapper">
             <div class="left">
@@ -44,7 +44,7 @@ import SideMenu from '@/components/SideMenu.vue'
 import Header from '@/components/Header.vue'
 
 export default {
-    name: 'add-unit',
+    name: 'room',
     data() {
         return {
             activeTab: 0,
@@ -72,11 +72,12 @@ section
 main
     flex-grow: 1
     
-.add-unit
+.room
     .wrapper
         display: flex
         justify-content: space-between
-        margin-top: 30px
+        margin-top: 60px
+        overflow: hidden
         & > div
             display: flex
             flex-direction: column
@@ -106,6 +107,7 @@ main
             color: white
             font-size: 12px
             font-family: 'OpenSans-Semibold', sans-serif
+            flex-shrink: 0
             &:hover
                 cursor: pointer
             &.active
