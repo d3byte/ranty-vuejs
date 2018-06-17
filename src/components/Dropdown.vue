@@ -1,8 +1,8 @@
 <template>
-<div class="form-group dropdown">
+<div :class="'form-group dropdown ' + classes">
     <div class="name">
         <input type="checkbox" v-model="toggled" />
-        <label>{{ (Object.keys(chosenItem).length > 0 ? chosenItem.name : 'Объект') }}</label>
+        <label>{{ (Object.keys(chosenItem).length > 0 ? chosenItem.name : defaultLabel) }}</label>
         <img src="@/assets/arrow_down.svg" @error="this.src = '@/assets/arrow_down.png'"/>
     </div>
     <ul class="items" v-show="toggled">
@@ -14,7 +14,7 @@
 <script>
 export default {
     name: 'dropdown',
-    props: ['items', 'chosenItem'],
+    props: ['items', 'chosenItem', 'defaultLabel', 'classes'],
     data() {
         return {
             toggled: false
@@ -31,6 +31,7 @@ export default {
 
 <style lang="sass">
 .form-group.dropdown
+    margin-bottom: 20px
     input[type="checkbox"]
         opacity: 0
         position: absolute
@@ -64,7 +65,7 @@ export default {
         border-bottom-left-radius: 8px
         border-bottom-right-radius: 8px
         margin: 0
-        padding: 10px
+        padding: 10px 20px
         list-style: none
         &:empty
             padding: 0
