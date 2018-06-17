@@ -142,7 +142,7 @@ input.line-based:invalid {
   z-index: 1000;
 }
 
-.form-group.floating-label input:focus {
+.form-group.floating-label input:focus + label {
   font-size: 12px;
   top: -10px;
 }
