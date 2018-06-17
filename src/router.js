@@ -7,6 +7,8 @@ import Page404 from './pages/Page404.vue'
 import Recovery from './pages/Recovery.vue'
 import Room from './pages/Room.vue'
 import CommercialOffer from './pages/CommercialOffer.vue'
+import AddUnit from './pages/AddUnit.vue'
+import AddLead from './pages/AddLead.vue'
 
 
 Vue.use(Router)
@@ -43,6 +45,16 @@ export default new Router({
       path: '/new-commercial-offer',
       name: 'Новое коммерческое предложение',
       component: CommercialOffer
+    },
+    {
+      path: '/add-unit',
+      name: 'Добавить объект',
+      component: AddUnit
+    },
+    {
+      path: '/add-lead',
+      name: 'Новый контакт',
+      component: AddLead
     },
     {
       path: '*',
