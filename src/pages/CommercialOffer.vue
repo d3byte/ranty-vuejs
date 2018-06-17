@@ -1,7 +1,7 @@
 <template>
 <section class="gray-background overflow-hidden">
     <side-menu/>
-    <main class="add-unit">
+    <main class="commercial-offer main-content">
         <ranty-header/>
         <div class="wrapper">
             <h2>Новое коммерческое предложение</h2>
@@ -55,7 +55,7 @@ import SideMenu from '@/components/SideMenu.vue'
 import Header from '@/components/Header.vue'
 import Dropdown from '@/components/Dropdown.vue'
 export default {
-    name: 'add-unit',
+    name: 'commercial-offer',
     data() {
         return {
             units: [
@@ -120,9 +120,12 @@ export default {
 </script>
 
 <style lang="sass">
-.add-unit
+.main-content
     height: 100vh
     overflow: scroll
+
+.commercial-offer
+   
     .wrapper
         width: 70%
         background: white
@@ -191,13 +194,13 @@ $space-between-stages: 60px
 
 
 @media (max-width: 1100px)
-    .add-unit
+    .commercial-offer
         form
             max-width: none
             width: 95%
 
 @media (max-width: 780px)
-    .add-unit
+    .commercial-offer
         .half-splitted
             flex-direction: column !important
 
