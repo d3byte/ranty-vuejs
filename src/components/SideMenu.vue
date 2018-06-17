@@ -10,8 +10,8 @@
         </ul>
     </div>
     <footer>
-        <i class="material-icons">person_add</i>
-        <img src="@/assets/add_object.svg" @error="this.src = '@/assets/add_object.png'" />
+        <i class="material-icons" @click="() => routeTo('add-lead')">person_add</i>
+        <img src="@/assets/add_object.svg" @error="this.src = '@/assets/add_object.png'" @click="() => routeTo('add-unit')" />
     </footer>
 </aside>
 </template>
