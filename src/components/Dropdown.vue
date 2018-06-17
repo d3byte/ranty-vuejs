@@ -66,6 +66,9 @@ export default {
         margin: 0
         padding: 10px
         list-style: none
+        &:empty
+            padding: 0
+            border: none
         li
             margin-bottom: 15px
             &:last-of-type
