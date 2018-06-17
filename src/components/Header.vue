@@ -48,7 +48,6 @@ header
     align-items: center
     padding: 5px 20px
     margin-left: 40px
-    heigh
     .breadcrumb
         position: relative
         display: flex
