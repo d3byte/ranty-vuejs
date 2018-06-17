@@ -6,6 +6,8 @@ import Home from './pages/Home.vue'
 import Page404 from './pages/Page404.vue'
 import Recovery from './pages/Recovery.vue'
 import Room from './pages/Room.vue'
+import AddUnit from './pages/AddUnit.vue'
+
 
 Vue.use(Router)
 
@@ -36,6 +38,11 @@ export default new Router({
       path: '/room',
       name: 'Помещение',
       component: Room
+    },
+    {
+      path: '/add-unit',
+      name: 'Добавить объект',
+      component: AddUnit
     },
     {
       path: '*',
