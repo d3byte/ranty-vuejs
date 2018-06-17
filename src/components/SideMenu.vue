@@ -71,6 +71,7 @@ export default {
     background: white
     height: 100vh
     padding: 30px 0 0 0
+    
 
 
 ul
@@ -78,16 +79,28 @@ ul
     padding: 0 20px
     list-style-type: none
     li
+        position: relative
         display: flex
         align-items: center
         font-size: 16px
         margin-top: 10px
         &:hover
             cursor: pointer
+            &:after
+                height: 100%
         &:first-of-type
             margin-top: 0
         i
             margin-right: 10px
+        &:after
+            position: absolute
+            content: ''
+            width: 2px
+            height: 0
+            right: -8px
+            top: 0
+            background: #707070
+            transition: 0.3s
 
 .logo-text
     text-align: left
