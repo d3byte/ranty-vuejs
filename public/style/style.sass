@@ -3,7 +3,7 @@
 *
     font-family: 'OpenSans-Regular'
     color: #4D4F5C
-    
+  
 
 
 *
@@ -19,14 +19,18 @@ a
 .half-splitted
     display: flex
     justify-content: space-between
-    vertical-align: middle
     width: 100%
     &.vertical
         flex-direction: column
         align-items: center
         justify-content: flex-start
 
-
+.triple-splitted
+    display: flex
+    justify-content: space-between
+    width: 100%
+    & > div
+        width: 32%
 
 button.square-like, a.square-like
     display: block
@@ -88,46 +92,118 @@ input.line-based
 
 
 .form-group
-  position: relative
-  margin-bottom: 30px
-  &:not(.checkbox)
-    padding: 5px 0
-    label
-      pointer-events: none
-  label
-    color: #43425D
-    transition: 0.3s
-  &.floating-label
-    label
-      position: absolute
-      left: 10px
-      top: 0px
-      z-index: 1000
-    input
-      &:focus
-        & + label
-          font-size: 12px
-          top: -10px
-      &:valid + label, &.static + label
-          font-size: 12px
-          top: -10px
-  &.checkbox
-    input
-      margin-right: 10px
-    label, input
-      cursor: pointer
+    position: relative
+    margin-bottom: 30px
 
+    &:not(.checkbox)
+        padding: 5px 0
+        label
+            pointer-events: none
+    label
+        color: #43425D
+        transition: 0.3s
+
+    &.floating-label
+        label
+            position: absolute
+            left: 10px
+            top: 0px
+            z-index: 1000
+        input
+            &:focus
+                & + label
+                font-size: 12px
+                top: -10px
+            &:valid + label, &.static + label
+                font-size: 12px
+                top: -10px
+
+    &.checkbox
+        input
+            margin-right: 10px
+
+    &.increased-font-size
+        label
+        font-size: 20px
+
+    &.dropdown
+        input[type="checkbox"]
+            opacity: 0
+            position: absolute
+            display: block
+            top: 0
+            width: 100%
+            height: 100%
+            cursor: pointer
+            &:checked ~ img
+                transform: rotate(180deg)
+    .name
+        position: relative
+        background: transparent
+        border: none
+        width: 100%
+        display: flex
+        align-items: center
+        justify-content: space-between
+        border-bottom: 1px solid #E9E9EF
+        padding: 10px 20px
+        img
+            width: 24px 
+            transition: 0.3s
+            &:active ~ .items
+                 display: block
+    .items
+        overflow: hidden
+        border: 1px solid #E9E9EF
+        border-top: none
+        border-bottom-left-radius: 8px
+        border-bottom-right-radius: 8px
+        margin: 0
+        padding: 10px 20px
+        list-style: none
+        &:empty
+            padding: 0
+            border: none
+        li
+            margin-bottom: 15px
+            &:last-of-type
+                margin-bottom: 0
+            &:hover
+                cursor: pointer
+                
+    &.icon-label
+        display: flex
+        align-items: flex-end
+        img
+            width: 24px
+        i
+            font-size: 24px
+        input
+            width: calc(100% - 26px)
+        
+
+
+.underlined
+    text-decoration: underline
+        
 
 
 .logo-text
-  font-family: 'Houchka-Bold', sans-serif
-  color: #43425D
-  text-align: center
-  text-transform: uppercase
-  letter-spacing: 5px
-  margin: 0
+    font-family: 'Houchka-Bold', sans-serif
+    color: #43425D
+    text-align: center
+    text-transform: uppercase
+    letter-spacing: 5px
+    margin: 0
 
 
 
 .gray-background
     background: #EEEEEE
+
+
+
+textarea
+    border: 1px solid #E9E9F0
+    border-radius: 10px
+    padding: 10px

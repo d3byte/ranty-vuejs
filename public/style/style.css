@@ -15,7 +15,6 @@ a {
 .half-splitted {
   display: flex;
   justify-content: space-between;
-  vertical-align: middle;
   width: 100%;
 }
 
@@ -23,6 +22,16 @@ a {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+}
+
+.triple-splitted {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.triple-splitted > div {
+  width: 32%;
 }
 
 button.square-like, a.square-like {
@@ -133,7 +142,7 @@ input.line-based:invalid {
   z-index: 1000;
 }
 
-.form-group.floating-label input:focus + label {
+.form-group.floating-label input:focus {
   font-size: 12px;
   top: -10px;
 }
@@ -147,8 +156,92 @@ input.line-based:invalid {
   margin-right: 10px;
 }
 
-.form-group.checkbox label, .form-group.checkbox input {
+.form-group.increased-font-size {
+  font-size: 20px;
+}
+
+.form-group.dropdown input[type="checkbox"] {
+  opacity: 0;
+  position: absolute;
+  display: block;
+  top: 0;
+  width: 100%;
+  height: 100%;
   cursor: pointer;
+}
+
+.form-group.dropdown input[type="checkbox"]:checked ~ img {
+  transform: rotate(180deg);
+}
+
+.form-group .name {
+  position: relative;
+  background: transparent;
+  border: none;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #E9E9EF;
+  padding: 10px 20px;
+}
+
+.form-group .name img {
+  width: 24px;
+  transition: 0.3s;
+}
+
+.form-group .name img:active ~ .items {
+  display: block;
+}
+
+.form-group .items {
+  overflow: hidden;
+  border: 1px solid #E9E9EF;
+  border-top: none;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  margin: 0;
+  padding: 10px 20px;
+  list-style: none;
+}
+
+.form-group .items:empty {
+  padding: 0;
+  border: none;
+}
+
+.form-group .items li {
+  margin-bottom: 15px;
+}
+
+.form-group .items li:last-of-type {
+  margin-bottom: 0;
+}
+
+.form-group .items li:hover {
+  cursor: pointer;
+}
+
+.form-group.icon-label {
+  display: flex;
+  align-items: flex-end;
+}
+
+.form-group.icon-label img {
+  width: 24px;
+}
+
+.form-group.icon-label i {
+  font-size: 24px;
+}
+
+.form-group.icon-label input {
+  width: calc(100% - 26px);
+}
+
+.underlined {
+  text-decoration: underline;
 }
 
 .logo-text {
@@ -162,5 +255,11 @@ input.line-based:invalid {
 
 .gray-background {
   background: #EEEEEE;
+}
+
+textarea {
+  border: 1px solid #E9E9F0;
+  border-radius: 10px;
+  padding: 10px;
 }
 /*# sourceMappingURL=style.css.map */
