@@ -95,6 +95,11 @@ input.line-based
     position: relative
     margin-bottom: 30px
 
+    label
+        &.required
+            sup
+                color: red
+
     &:not(.checkbox)
         padding: 5px 0
         label
@@ -118,6 +123,11 @@ input.line-based
                 font-size: 12px
                 top: -10px
 
+    &.static-label
+        display: flex
+        flex-direction: column
+        align-items: flex-start
+
     &.checkbox
         input
             margin-right: 10px
@@ -137,39 +147,39 @@ input.line-based
             cursor: pointer
             &:checked ~ img
                 transform: rotate(180deg)
-    .name
-        position: relative
-        background: transparent
-        border: none
-        width: 100%
-        display: flex
-        align-items: center
-        justify-content: space-between
-        border-bottom: 1px solid #E9E9EF
-        padding: 10px 20px
-        img
-            width: 24px 
-            transition: 0.3s
-            &:active ~ .items
-                 display: block
-    .items
-        overflow: hidden
-        border: 1px solid #E9E9EF
-        border-top: none
-        border-bottom-left-radius: 8px
-        border-bottom-right-radius: 8px
-        margin: 0
-        padding: 10px 20px
-        list-style: none
-        &:empty
-            padding: 0
+        .name
+            position: relative
+            background: transparent
             border: none
-        li
-            margin-bottom: 15px
-            &:last-of-type
-                margin-bottom: 0
-            &:hover
-                cursor: pointer
+            width: 100%
+            display: flex
+            align-items: center
+            justify-content: space-between
+            border-bottom: 1px solid #E9E9EF
+            padding: 10px 20px
+            img
+                width: 24px 
+                transition: 0.3s
+                &:active ~ .items
+                    display: block
+        .items
+            overflow: hidden
+            border: 1px solid #E9E9EF
+            border-top: none
+            border-bottom-left-radius: 8px
+            border-bottom-right-radius: 8px
+            margin: 0
+            padding: 10px 20px
+            list-style: none
+            &:empty
+                padding: 0
+                border: none
+            li
+                margin-bottom: 15px
+                &:last-of-type
+                    margin-bottom: 0
+                &:hover
+                    cursor: pointer
                 
     &.icon-label
         display: flex
@@ -203,7 +213,37 @@ input.line-based
 
 
 
+.one-line
+    display: flex
+    &.wrap
+        flex-wrap: wrap
+    &.space-between
+        justify-content: space-between
+
+
+.no-margin
+    margin: 0 !important
+.no-margin-right
+    margin-right: 0 !important
+.no-margin-left
+    margin-left: 0 !important
+.no-margin-top
+    margin-top: 0 !important
+.no-margin-bottom
+    margin-bottom: 0 !important
+
+
 textarea
     border: 1px solid #E9E9F0
     border-radius: 10px
     padding: 10px
+
+
+
+section
+    display: flex
+    main
+        flex-grow: 1
+        &.main-content
+            height: 100vh
+            overflow: scroll    

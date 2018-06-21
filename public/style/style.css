@@ -122,6 +122,10 @@ input.line-based:invalid {
   margin-bottom: 30px;
 }
 
+.form-group label.required sup {
+  color: red;
+}
+
 .form-group:not(.checkbox) {
   padding: 5px 0;
 }
@@ -152,6 +156,12 @@ input.line-based:invalid {
   top: -10px;
 }
 
+.form-group.static-label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
 .form-group.checkbox input {
   margin-right: 10px;
 }
@@ -174,7 +184,7 @@ input.line-based:invalid {
   transform: rotate(180deg);
 }
 
-.form-group .name {
+.form-group.dropdown .name {
   position: relative;
   background: transparent;
   border: none;
@@ -186,16 +196,16 @@ input.line-based:invalid {
   padding: 10px 20px;
 }
 
-.form-group .name img {
+.form-group.dropdown .name img {
   width: 24px;
   transition: 0.3s;
 }
 
-.form-group .name img:active ~ .items {
+.form-group.dropdown .name img:active ~ .items {
   display: block;
 }
 
-.form-group .items {
+.form-group.dropdown .items {
   overflow: hidden;
   border: 1px solid #E9E9EF;
   border-top: none;
@@ -206,20 +216,20 @@ input.line-based:invalid {
   list-style: none;
 }
 
-.form-group .items:empty {
+.form-group.dropdown .items:empty {
   padding: 0;
   border: none;
 }
 
-.form-group .items li {
+.form-group.dropdown .items li {
   margin-bottom: 15px;
 }
 
-.form-group .items li:last-of-type {
+.form-group.dropdown .items li:last-of-type {
   margin-bottom: 0;
 }
 
-.form-group .items li:hover {
+.form-group.dropdown .items li:hover {
   cursor: pointer;
 }
 
@@ -257,9 +267,54 @@ input.line-based:invalid {
   background: #EEEEEE;
 }
 
+.one-line {
+  display: flex;
+}
+
+.one-line.wrap {
+  flex-wrap: wrap;
+}
+
+.one-line.space-between {
+  justify-content: space-between;
+}
+
+.no-margin {
+  margin: 0 !important;
+}
+
+.no-margin-right {
+  margin-right: 0 !important;
+}
+
+.no-margin-left {
+  margin-left: 0 !important;
+}
+
+.no-margin-top {
+  margin-top: 0 !important;
+}
+
+.no-margin-bottom {
+  margin-bottom: 0 !important;
+}
+
 textarea {
   border: 1px solid #E9E9F0;
   border-radius: 10px;
   padding: 10px;
+}
+
+section {
+  display: flex;
+}
+
+section main {
+  flex-grow: 1;
+}
+
+section main.main-content {
+  height: 100vh;
+  overflow: scroll;
 }
 /*# sourceMappingURL=style.css.map */
