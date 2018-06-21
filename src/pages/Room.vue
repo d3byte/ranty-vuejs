@@ -66,12 +66,6 @@ export default {
 </script>
 
 <style lang="sass">
-section
-    display: flex
-
-main
-    flex-grow: 1
-    
 .room
     .wrapper
         display: flex
