@@ -1,0 +1,11 @@
+<svg id="shift-in-arrow-move-keep" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34.051 34.051">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #00a7ff;
+      }
+    </style>
+  </defs>
+  <path id="Path_747" data-name="Path 747" class="cls-1" d="M23.7,1H1V35.051H35.051V1H23.7Zm0,32.632H2.419V2.419H23.7ZM33.632,2.419V33.632H25.119V2.419Z" transform="translate(-1 -1)"/>
+  <path id="Path_748" data-name="Path 748" class="cls-1" d="M17.139,26.387l1,1,4.048-4.048-4.048-4.048-1,1,2.336,2.336H7v1.419H19.475Z" transform="translate(-2.744 -6.316)"/>
+</svg>
