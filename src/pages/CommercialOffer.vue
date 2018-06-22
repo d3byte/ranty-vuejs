@@ -352,6 +352,7 @@ $space-between-stages: 60px
         justify-content: center
         width: 60px
         height: 60px
+        border: 3px solid transparent
         border-radius: 50%
         background: #E5E5E5
         margin-right: $space-between-stages
@@ -359,14 +360,14 @@ $space-between-stages: 60px
         &:after
             position: absolute
             content: ''
-            right: -$space-between-stages
+            right: -($space-between-stages + 3)
             width: $space-between-stages
             height: 3px
             background: #E5E5E5
         &:before
             position: absolute
             content: ''
-            left: -$space-between-stages
+            left: -($space-between-stages + 3)
             width: $space-between-stages
             height: 3px
             background: #E5E5E5
@@ -379,7 +380,9 @@ $space-between-stages: 60px
             &:before, &:after
                 background: #FFEB00
             &.active
-                color: white
+                background: white
+                border-color: #FFEB00
+                
 
 .w-150
     width: 150px
@@ -454,9 +457,9 @@ $space-between-stages: 60px
         margin-right: 40px
         &:after
             width: 40px
-            right: -40px
+            right: -43px
         &:before
             width: 40px
-            left: -40px
+            left: -43px
 
 </style>
