@@ -66,6 +66,7 @@ input.line-based {
   box-sizing: border-box;
   font-family: 'ProximaNova-Regular', sans-serif;
   font-size: 16px;
+  background: transparent;
   border: none;
   border-radius: 0;
   border-bottom: 1px solid #E9E9EF;
@@ -73,6 +74,8 @@ input.line-based {
   width: 100%;
   transition: 0.2s;
   color: #595959;
+  outline: none;
+  box-shadow: none;
 }
 
 input.line-based::-webkit-input-placeholder {
@@ -112,7 +115,18 @@ input.line-based:focus:-ms-input-placeholder {
   color: #9D9C9C;
 }
 
-input.line-based:invalid {
+input.box-based {
+  border: 1px solid transparent;
+  transition: 0.3s;
+  padding: 3px 10px;
+}
+
+input.box-based:focus {
+  outline: none;
+  border-color: #626262;
+}
+
+input.box-based:invalid {
   outline: none;
   box-shadow: none;
 }
@@ -233,6 +247,11 @@ input.line-based:invalid {
   cursor: pointer;
 }
 
+.form-group.dropdown.box-based .name {
+  background: white;
+  padding: 5px 10px;
+}
+
 .form-group.icon-label {
   display: flex;
   align-items: flex-end;
@@ -248,6 +267,18 @@ input.line-based:invalid {
 
 .form-group.icon-label input {
   width: calc(100% - 26px);
+}
+
+.form-group.icon-input {
+  display: flex;
+  align-items: center;
+}
+
+.form-group.icon-input img, .form-group.icon-input i {
+  position: absolute;
+  right: 5px;
+  width: 24px;
+  font-size: 24px;
 }
 
 .underlined {
@@ -297,6 +328,10 @@ input.line-based:invalid {
 
 .no-margin-bottom {
   margin-bottom: 0 !important;
+}
+
+.hover {
+  cursor: pointer;
 }
 
 textarea {
