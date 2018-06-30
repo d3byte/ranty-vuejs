@@ -20,7 +20,7 @@
           <router-link id="recovery" to="/recovery">Забыл пароль</router-link>
         </div>
         <div class="half-splitted">
-          <button class="square-like yellow">Войти</button>
+          <button @click="submit" class="square-like yellow">Войти</button>
           <router-link to="/signup" class="square-like">Регистрация</router-link>
         </div>
       </form>
@@ -29,6 +29,7 @@
 </template>
 
 <script>
+// import axios from 'axios'
 
 export default {
   name: 'signin',
@@ -38,6 +39,32 @@ export default {
       password: '',
       remember: false
     }
+  },
+  computed: {
+    token() {
+      return this.$store.state.token
+    }
+  },
+  methods: {
+    async submit() {
+      const { email, password } = this
+      const { body } = await this.$http.post('login', { email, password })
+      const { data, errors } = body
+      const token = data.api_token
+      delete data.api_token
+      if (token) {
+        this.$store.dispatch('login', { user: data, token })
+        this.$router.push('/')
+      }
+    },
+    checkForAuth() {
+      if (this.token) {
+        this.$router.push('/')
+      }
+    }
+  },
+  created() {
+    this.checkForAuth()
   },
 }
 </script>

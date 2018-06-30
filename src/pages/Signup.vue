@@ -3,6 +3,7 @@
     <div class="wrapper">
       <h1 class="logo-text">Ranty</h1>
       <p class="sub-title">Регистрация</p>
+      <p class="error-text" v-if="error.length > 0">{{ error }}</p>
       <form class="form" @submit="e => e.preventDefault()">
         <div class="half-splitted">
           <div class="form-group floating-label">
@@ -35,7 +36,7 @@
           <label for="agree-eula">Согласен с лицензионным соглашением</label>
         </div>
         <div class="half-splitted vertical">
-          <button class="square-like yellow">Зарегистрироваться</button>
+          <button class="square-like yellow" @click="submit">Зарегистрироваться</button>
           <router-link to="/signin">Уже есть аккаунт? Войти</router-link>
         </div>
       </form>
@@ -44,7 +45,6 @@
 </template>
 
 <script>
-
 export default {
   name: 'signin',
   data() {
@@ -55,8 +55,46 @@ export default {
       email: '',
       password: '',
       repeatedPassword: '',
-      agree: false
+      agree: false,
+      error: ''
     }
+  },
+  computed: {
+    token() {
+      return this.$store.state.token
+    }
+  },
+  methods: {
+    async submit() {
+      const { firstName, lastName, telephone, email, password, repeatedPassword } = this
+      if (password !== repeatedPassword) {
+        this.error = 'Введённые пароли не совпадают'
+        return
+      }
+      const { body } = await this.$http.post('register', {
+        firstname: firstName,
+        secondname: lastName,
+        email,
+        phone: telephone,
+        password,
+        password_confirmation: repeatedPassword
+      })
+      const { data, errors } = body
+      const token = data.api_token
+      delete data.api_token
+      if (token) {
+        this.$store.dispatch('login', { user: data, token })
+        this.$router.push('/')
+      }
+    },
+    checkForAuth() {
+      if (this.token) {
+        this.$router.push('/')
+      }
+    }
+  },
+  created() {
+    this.checkForAuth()
   },
 }
 </script>
@@ -70,4 +108,7 @@ export default {
     a
       margin-top: 15px
       text-decoration: underline
+
+.error-text
+  margin-bottom: 30px
 </style>
