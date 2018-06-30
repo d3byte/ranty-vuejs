@@ -25,7 +25,20 @@ export default {
       success: false
     }
   },
+  computed: {
+    token() {
+      return this.$store.state.token
+    },
+  },
+  created() {
+    this.checkForAuth()
+  },
   methods: {
+    checkForAuth() {
+      if (!this.token) {
+        this.$router.push('/signin')
+      }
+    },
     submit() {
       this.success = true
     }

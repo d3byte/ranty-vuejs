@@ -9,7 +9,7 @@
                     <div :class="activeTab == 0 ? 'active' : ''">
                         <img v-if="activeTab === 0" src="@/assets/tenant_black.svg" @error="this.src = '@/assets/tenant_black.png'" />
                         <img v-else src="@/assets/tenant_white.svg" @error="this.src = '@/assets/tenant_white.png'" />
-                        Финансы
+                        Арендатор
                     </div>
                     <div :class="activeTab == 1 ? 'active' : ''">
                         <img v-if="activeTab === 1" src="@/assets/assessment_black.svg" @error="this.src = '@/assets/assessment_black.png'" />
@@ -27,6 +27,73 @@
                         Заявки
                     </div>
                 </nav>
+                <div class="rentor" v-if="activeTab === 0">
+                    <div class="half-splitted">
+                        <div class="label-group">
+                            <p class="title">Арендатор</p>
+                            <p>ИП Тихонов И.Е.</p>
+                        </div>
+                        <div class="half-splitted">
+                            <div class="label-group">
+                                <p class="title">Начало аренды</p>
+                                <p>24.08.18</p>
+                            </div>
+                            <div class="label-group">
+                                <p class="title">Конец аренды</p>
+                                <p>24.08.19</p>
+                            </div>
+                        </div>
+                    </div>
+                    <hr/>
+                    <div class="contacts">
+                        <div class="label-group">
+                            <p class="title">Контакты</p>
+                            <p>Иван Тихонов</p>
+                            <p>+7 999 555 86 12</p>
+                            <p>ivan@mail.com</p>    
+                        </div>
+                    </div>
+                    <hr/>
+                    <div class="commercial-requirements">
+                        <div class="label-group">
+                            <p class="title">Коммерческие условия</p>
+                            <p>
+                                <b>Оплата арендной платы</b><br/>
+                                Не позднее 5-го числа месяца
+                            </p>
+                            <p>
+                                <b>Оплата переменных платежей</b><br/>
+                                Не позднее 3 дней с выставления счёта
+                            </p>
+                        </div>
+                    </div>
+                    <div class="half-splitted contacts">
+                        <div class="label-group">
+                            <p class="title">Реквизиты компании</p>
+                            <p>
+                                <span>ИНН 9729253944</span>
+                                <span>ген. дир.</span>
+                            </p>
+                            <p>
+                                <span>КПП 772901001</span>
+                                <span>юр. адрес</span>
+                            </p>
+                            <p>ОГРНип 7754538</p>
+                        </div>
+                        <div class="label-group">
+                            <p class="title">Банковские реквизиты</p>
+                            <p>Р/С 40702810402080001046</p>
+                            <p>БИК 044525593</p>
+                            <p>АО «Альфа-Банк», г. Москва</p>
+                        </div>
+                    </div>
+                    <hr/>
+                    <div class="files">
+                        <div class="label-group">
+                            <p class="title">Вложения</p>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="right">
                 <div class="balance">
@@ -129,4 +196,10 @@ export default {
         .value
             margin-top: 5px
             font-size: 24px 
+
+.rentor
+    background: white
+    border-radius: 20px
+    padding: 30px
+    margin-top: 30px
 </style>

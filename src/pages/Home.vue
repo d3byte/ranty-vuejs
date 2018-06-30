@@ -193,6 +193,24 @@ export default {
       status: {}
     }
   },
+  computed: {
+    token() {
+      return this.$store.state.token
+    },
+    user() {
+      return this.$store.state.user
+    },
+  },
+  methods: {
+    checkForAuth() {
+      if (!this.token) {
+        this.$router.push('/signin')
+      }
+    }
+  },
+  created() {
+    this.checkForAuth()
+  },
   components: {
     SideMenu,
     'ranty-header': Header,

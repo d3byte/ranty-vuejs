@@ -71,13 +71,29 @@ export default {
             ]
         }
     },
+    computed: {
+        token() {
+            return this.$store.state.token
+        },
+        user() {
+            return this.$store.state.user
+        },
+    },
     methods: {
         addRoom() {
             this.rooms.push({ index: this.rooms.length, name: '', type: '', rent: '', square: '' })
         },
         removeRoom(index) {
             this.rooms = this.rooms.filter(room => room.index !== index)
+        },
+        checkForAuth() {
+            if (!this.token) {
+                this.$router.push('/signin')
+            }
         }
+    },
+    created() {
+        this.checkForAuth()
     },
     components: {
         SideMenu,
