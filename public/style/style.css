@@ -283,6 +283,10 @@ input.box-based:invalid {
   cursor: pointer;
 }
 
+.form-group.dropdown.box-based.bordered > .name {
+  border: 1px solid #E9E9EF;
+}
+
 .form-group.dropdown.box-based .name {
   background: white;
   padding: 5px 10px;
