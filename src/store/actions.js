@@ -1,1 +1,5 @@
-export default {}
+export default {
+    login({ commit }, credentials) {
+        commit('login', credentials)
+    },
+}
