@@ -137,6 +137,33 @@
                     <p class="title">Баланс</p>
                     <p class="value">10000₽</p>
                 </div>
+                <div class="room">
+                    <div class="image">
+                        <p class="title">
+                            ТЦ Манго <br/>
+                            пав-44
+                        </p>
+                        <p class="adress">Москва, ул. Щелковская, 12</p>
+                    </div>
+                    <div class="info">
+                        <div class="triple-splitted">
+                            <div class="label-group">
+                                <p class="title">тип</p>
+                                <p>Торговая</p>
+                            </div>
+                            <div class="label-group">
+                                <p class="title">площадь</p>
+                                <p>30м<sup>2</sup></p>
+                            </div>
+                            <div class="label-group">
+                                <p class="title">этаж</p>
+                                <p>1/3</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="rounded green">Написать сообщение</button>
+                <button class="rounded orange">Создать заявку</button>
             </div>
         </div>
     </main>
@@ -270,6 +297,10 @@ hr
 .finance
     header 
         align-items: center
+        & > div:first-of-type p
+            margin-right: 15px
+            &:last-of-type
+                margin-right: 0
         .dropdown, p
             margin: 0
 
@@ -283,4 +314,56 @@ hr
             justify-content: space-between
             & > p
                 width: 16%
+
+.right .room
+    background: white
+    border-radius: 20px
+    margin-top: 30px
+    .image
+        display: flex
+        flex-direction: column
+        justify-content: center
+        height: 150px
+        background: #fabe58; /* Old Browsers */
+        background: -webkit-linear-gradient(left,#fabe58,#6bb9f0)
+        background: -o-linear-gradient(left,#fabe58,#6bb9f0)
+        background: -moz-linear-gradient(left,#fabe58,#6bb9f0)
+        background: linear-gradient(to right, #fabe58, #6bb9f0)
+        border-top-left-radius: 20px
+        border-top-right-radius: 20px
+        p
+            margin: 0
+            text-align: center
+            color: black
+        .title
+            font-size: 20px
+            margin-bottom: 15px
+    .info
+
+        .triple-splitted
+            padding: 10px
+            align-items: center
+            .label-group
+                p
+                    margin: 0
+                    text-align: center
+                    &.title
+                        margin-bottom: 10px
+
+
+.right button.rounded
+    margin-top: 15px
+
+button
+    &.rounded
+        border: none
+        border-radius: 20px
+        padding: 10px
+        text-transform: uppercase
+        font-weight: bold
+        font-size: 14px
+        &.green
+            background: #87D37C
+        &.orange
+            background: #FABE58
 </style>
