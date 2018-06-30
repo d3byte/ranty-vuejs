@@ -1,8 +1,4 @@
 @import url("fonts.css");
-body {
-  margin: 0;
-}
-
 * {
   font-family: 'OpenSans-Regular';
   color: #4D4F5C;
@@ -408,5 +404,10 @@ section main {
 section main.main-content {
   height: 100vh;
   overflow: scroll;
+}
+
+.error-text {
+  text-align: center;
+  color: #a31621;
 }
 /*# sourceMappingURL=style.css.map */
