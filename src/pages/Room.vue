@@ -1,34 +1,34 @@
 <template>
 <section class="gray-background">
     <side-menu/>
-    <main class="room">
+    <main class="room main-content">
         <ranty-header/>
         <div class="wrapper">
             <div class="left">
                 <nav class="menu">
-                    <div :class="activeTab == 0 ? 'active' : ''">
+                    <div :class="activeTab == 0 ? 'active' : ''" @click="activeTab = 0">
                         <img v-if="activeTab === 0" src="@/assets/tenant_black.svg" @error="this.src = '@/assets/tenant_black.png'" />
                         <img v-else src="@/assets/tenant_white.svg" @error="this.src = '@/assets/tenant_white.png'" />
                         Арендатор
                     </div>
-                    <div :class="activeTab == 1 ? 'active' : ''">
+                    <div :class="activeTab == 1 ? 'active' : ''" @click="activeTab = 1">
                         <img v-if="activeTab === 1" src="@/assets/assessment_black.svg" @error="this.src = '@/assets/assessment_black.png'" />
                         <img v-else src="@/assets/assessment_white.svg" @error="this.src = '@/assets/assessment_white.png'" />
                         Финансы
                     </div>
-                    <div :class="activeTab == 2 ? 'active' : ''">
+                    <div :class="activeTab == 2 ? 'active' : ''" @click="activeTab = 2">
                         <img v-if="activeTab === 2" src="@/assets/lcd_black.svg" @error="this.src = '@/assets/lcd_black.png'" />
                         <img v-else src="@/assets/lcd_white.svg" @error="this.src = '@/assets/lcd_white.png'" />
                         ЖКУ
                     </div>
-                    <div :class="activeTab == 3 ? 'active' : ''">
+                    <div :class="activeTab == 3 ? 'active' : ''" @click="activeTab = 3">
                         <img v-if="activeTab === 3" src="@/assets/applications_black.svg" @error="this.src = '@/assets/applications_black.png'" />
                         <img v-else src="@/assets/applications_white.svg" @error="this.src = '@/assets/applications_white.png'" />
                         Заявки
                     </div>
                 </nav>
                 <div class="rentor" v-if="activeTab === 0">
-                    <div class="half-splitted">
+                    <div class="half-splitted space-between">
                         <div class="label-group">
                             <p class="title">Арендатор</p>
                             <p>ИП Тихонов И.Е.</p>
@@ -67,7 +67,8 @@
                             </p>
                         </div>
                     </div>
-                    <div class="half-splitted contacts">
+                    <hr/>
+                    <div class="half-splitted company">
                         <div class="label-group">
                             <p class="title">Реквизиты компании</p>
                             <p>
@@ -132,7 +133,7 @@ export default {
 }
 </script>
 
-<style lang="sass">
+<style lang="sass" scoped>
 .room
     .wrapper
         display: flex
@@ -201,5 +202,27 @@ export default {
     background: white
     border-radius: 20px
     padding: 30px
-    margin-top: 30px
+    margin: 30px 0 60px 0
+
+.label-group
+    p
+        margin-bottom: 15px
+        &:last-of-type
+            margin: 0
+        &.title
+            color: #707070
+            font-size: 14px
+            font-weight: bold
+
+.half-splitted
+    & > div
+        width: 50%
+
+hr
+    margin: 30px 0
+
+.company .label-group > p > span
+    margin-right: 10px
+    &:last-of-type
+        margin-right: 0
 </style>
