@@ -1,11 +1,13 @@
 @import url("fonts.css");
-* {
-  font-family: 'OpenSans-Regular';
-  color: #4D4F5C;
+body {
+  margin: 0;
 }
 
 * {
-  box-sizing: border-box;
+  font-family: 'OpenSans-Regular';
+  color: #4D4F5C;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
 
 a {
@@ -13,20 +15,35 @@ a {
 }
 
 .half-splitted {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   width: 100%;
 }
 
 .half-splitted.vertical {
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
 }
 
 .triple-splitted {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   width: 100%;
 }
 
@@ -42,6 +59,7 @@ button.square-like, a.square-like {
   background: white;
   padding: 10px 0;
   text-align: center;
+  -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
@@ -49,7 +67,8 @@ button.square-like:hover, button.square-like:focus, button.square-like:active, a
   cursor: pointer;
   color: white;
   background: #4D4F5C;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 button.square-like.yellow, a.square-like.yellow {
@@ -63,7 +82,8 @@ button.square-like.yellow:hover, button.square-like.yellow:focus, button.square-
 }
 
 input.line-based {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   font-family: 'ProximaNova-Regular', sans-serif;
   font-size: 16px;
   background: transparent;
@@ -72,10 +92,12 @@ input.line-based {
   border-bottom: 1px solid #E9E9EF;
   padding-left: 10px;
   width: 100%;
+  -webkit-transition: 0.2s;
   transition: 0.2s;
   color: #595959;
   outline: none;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 input.line-based::-webkit-input-placeholder {
@@ -117,6 +139,7 @@ input.line-based:focus:-ms-input-placeholder {
 
 input.box-based {
   border: 1px solid transparent;
+  -webkit-transition: 0.3s;
   transition: 0.3s;
   padding: 3px 10px;
 }
@@ -128,7 +151,8 @@ input.box-based:focus {
 
 input.box-based:invalid {
   outline: none;
-  box-shadow: none;
+  -webkit-box-shadow: none;
+          box-shadow: none;
 }
 
 .form-group {
@@ -150,6 +174,7 @@ input.box-based:invalid {
 
 .form-group label {
   color: #43425D;
+  -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
@@ -171,9 +196,16 @@ input.box-based:invalid {
 }
 
 .form-group.static-label {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
 }
 
 .form-group.checkbox input {
@@ -195,7 +227,8 @@ input.box-based:invalid {
 }
 
 .form-group.dropdown input[type="checkbox"]:checked ~ img {
-  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
 }
 
 .form-group.dropdown .name {
@@ -203,15 +236,22 @@ input.box-based:invalid {
   background: transparent;
   border: none;
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   border-bottom: 1px solid #E9E9EF;
   padding: 10px 20px;
 }
 
 .form-group.dropdown .name img {
   width: 24px;
+  -webkit-transition: 0.3s;
   transition: 0.3s;
 }
 
@@ -253,8 +293,12 @@ input.box-based:invalid {
 }
 
 .form-group.icon-label {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
 .form-group.icon-label img {
@@ -270,8 +314,12 @@ input.box-based:invalid {
 }
 
 .form-group.icon-input {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .form-group.icon-input img, .form-group.icon-input i {
@@ -299,15 +347,20 @@ input.box-based:invalid {
 }
 
 .one-line {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
 .one-line.wrap {
-  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .one-line.space-between {
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .no-margin {
@@ -341,11 +394,15 @@ textarea {
 }
 
 section {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
 section main {
-  flex-grow: 1;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
 }
 
 section main.main-content {
