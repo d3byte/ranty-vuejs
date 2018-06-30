@@ -95,6 +95,42 @@
                         </div>
                     </div>
                 </div>
+                <div class="finance" v-if="activeTab === 1">
+                    <header class="half-splitted">
+                        <div class="one-line">
+                            <p class="active">Арендная плата</p>
+                            <p>Коммунальные платежи</p>
+                        </div>
+                        <dropdown :items="[]" :chosenItem="{}" v-model="type" defaultLabel="АП/Пени" classes="box-based bordered" />
+                    </header>
+                    <hr/>
+                    <div class="checks">
+                        <div class="check half-splitted">
+                            <div class="one-line">
+                                <p><b>Оплачен</b></p>
+                                <p>06/08/18</p>
+                                <p>Назначение</p>
+                            </div>
+                            <p><b>10000 руб.</b></p>
+                        </div>
+                        <div class="check half-splitted">
+                            <div class="one-line">
+                                <p><b>Оплачен</b></p>
+                                <p>06/08/18</p>
+                                <p>Назначение</p>
+                            </div>
+                            <p><b>10000 руб.</b></p>
+                        </div>
+                        <div class="check half-splitted">
+                            <div class="one-line">
+                                <p><b>Оплачен</b></p>
+                                <p>06/08/18</p>
+                                <p>Назначение</p>
+                            </div>
+                            <p><b>10000 руб.</b></p>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="right">
                 <div class="balance">
@@ -110,12 +146,14 @@
 <script>
 import SideMenu from '@/components/SideMenu.vue'
 import Header from '@/components/Header.vue'
+import Dropdown from '@/components/Dropdown.vue'
 
 export default {
     name: 'room',
     data() {
         return {
-            activeTab: 0,
+            activeTab: 1,
+            type: ''
         }
     },
     methods: {
@@ -128,7 +166,8 @@ export default {
     },
     components: {
         SideMenu,
-        'ranty-header': Header
+        'ranty-header': Header,
+        Dropdown
     }
 }
 </script>
@@ -198,7 +237,7 @@ export default {
             margin-top: 5px
             font-size: 24px 
 
-.rentor
+.rentor, .finance
     background: white
     border-radius: 20px
     padding: 30px
@@ -220,9 +259,28 @@ export default {
 
 hr
     margin: 30px 0
+    box-shadow: none !important
+    border: 1px solid #707070
 
 .company .label-group > p > span
     margin-right: 10px
     &:last-of-type
         margin-right: 0
+
+.finance
+    header 
+        align-items: center
+        .dropdown, p
+            margin: 0
+
+.checks
+    .check
+        border-bottom: 2px solid #707070
+        margin-bottom: 30px
+        &:last-of-type
+            margin-bottom: 0
+        .one-line 
+            justify-content: space-between
+            & > p
+                width: 16%
 </style>
