@@ -61,7 +61,11 @@ export default {
   },
   computed: {
     token() {
-      return this.$store.state.token
+      const token = this.$store.state.token
+      if (token) {
+        this.$router.push('/')
+      }
+      return token
     }
   },
   methods: {
