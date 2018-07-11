@@ -1,0 +1,194 @@
+<heml>
+  <head>
+    <subject>Коммерческое предложение</subject>
+    <preview>Вам поступило новое коммерческое предложение.</preview>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&amp;subset=cyrillic" rel="stylesheet"> 
+    <style>
+        * {
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        container {
+            max-width: 900px;
+            margin: 10px auto;
+            padding: 10px 20px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        row {
+            margin: 30px 0;
+        }
+    
+        row.sub-info column:nth-child(2) p {
+            text-align: right;
+        }
+
+        row.images {
+            padding: 0 50px 0 0;
+        } row.images img {
+            margin-bottom: 30px;
+        }
+
+        .images img {
+            width: 250px;
+            height: 150px;
+            border: 1px solid solid ;
+        }
+
+        row.data column:first-child p {
+            font-weight: bold;
+            color: rgb(131, 131, 131);
+        }
+
+        button {
+            font-weight: bold;
+            width: 150px;
+            padding: 8px 0;
+            cursor: pointer;
+            margin-top: 30px;
+        } 
+        button.grey {
+            background: rgb(112, 112, 112);
+        }
+        button.yellow {
+            background: rgb(255, 235, 0);
+            color: black;
+        }
+
+        row:last-of-type column p {
+            text-align: center;
+            margin: 30px 0;
+            color: rgb(131, 131, 131);
+        }
+
+        img.logo {
+            width: 130px;
+            margin: 30px auto 0 auto;
+        }
+
+        @media (max-width: 810px) {
+            .images img {
+                width: 95% !important;
+            }
+            
+            row.sub-info column:nth-child(2) p {
+                text-align: left !important;
+                margin-top: 0 !important;
+                margin-bottom: 30px !important;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .images img {
+                width: 100% !important;
+            }
+        }
+    </style>
+  </head>
+  <body>
+    <container>
+        <row>
+            <column>
+                <h1>Коммерческое предложение для компании</h1>
+            </column>
+        </row>
+        <row class="sub-info">
+            <column>
+                <p>[Адрес]</p>
+            </column>
+            <column>
+                <p>[Тип, площадь]</p>
+            </column>
+        </row>
+        <row class="images">
+            <column>
+                <img src="" alt="image">
+            </column>
+            <column>
+                <img src="" alt="image">
+            </column>
+            <column>
+                <img src="" alt="image">
+            </column>
+        </row>
+        <row class="data">
+            <column>
+                <p>Срок аренды</p>
+            </column>
+            <column>
+                <p>[11] месяцев</p>
+            </column>
+        </row>
+        <row class="data">
+            <column>
+                <p>Арендная плата</p>
+            </column>
+            <column>
+                <p>[11 111 111] рублей</p>
+            </column>
+        </row>
+        <row class="data">
+            <column>
+                <p>Оплата аренды не позднее</p>
+            </column>
+            <column>
+                <p>[11] числа месяца</p>
+            </column>
+        </row>
+        <row class="data">
+            <column>
+                <p>Депозит</p>
+            </column>
+            <column>
+                <p>[11 111] рублей</p>
+            </column>
+        </row>
+        <row class="data">
+            <column>
+                <p>Переменные платежи</p>
+            </column>
+            <column>
+                <p>[ГВС];[ХВС] итд</p>
+            </column>
+        </row>
+        <row class="data">
+            <column>
+                <p>Оплата переменных платежей</p>
+            </column>
+            <column>
+                <p>Не позднее [11] дней с выставления счёта</p>
+            </column>
+        </row>
+        <row class="data">
+            <column>
+                <p>Пени</p>
+            </column>
+            <column>
+                <p>[11,11]% от суммы задолженности в день</p>
+            </column>
+        </row>
+        <row class="buttons">
+            <column>
+                <button class="grey">Отклонить</button>
+            </column>
+            <column>
+                <button class="yellow">Принять</button>
+            </column>
+        </row>
+        <row>
+            <column>
+                <img src="data:image/png;base64,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" class="logo" alt="Ranty" />
+            </column>
+        </row>
+        <row>
+            <column>
+                <p>Предложение действительно 7 дней с момента отправки</p>
+            </column>
+        </row>
+    </container>
+  </body>
+</heml>
