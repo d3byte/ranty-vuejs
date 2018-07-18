@@ -9,6 +9,7 @@ import Room from './pages/Room.vue'
 import CommercialOffer from './pages/CommercialOffer.vue'
 import AddUnit from './pages/AddUnit.vue'
 import AddLead from './pages/AddLead.vue'
+import ConfirmOrCancelOffer from './pages/ConfirmOrCancelOffer.vue'
 
 
 Vue.use(Router)
@@ -37,12 +38,12 @@ export default new Router({
       component: Recovery
     },
     {
-      path: '/room',
+      path: '/room/:id',
       name: 'Помещение',
       component: Room
     },
     {
-      path: '/new-commercial-offer',
+      path: '/new-commercial-offer/:ids',
       name: 'Новое коммерческое предложение',
       component: CommercialOffer
     },
@@ -55,6 +56,11 @@ export default new Router({
       path: '/add-lead',
       name: 'Новый контакт',
       component: AddLead
+    },
+    {
+      path: '/tenant/:action/:token',
+      name: 'Подтвердить или отклонить предложение',
+      component: ConfirmOrCancelOffer,
     },
     {
       path: '*',

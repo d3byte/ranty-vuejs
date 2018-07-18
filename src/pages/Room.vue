@@ -140,24 +140,25 @@
                 <div class="room">
                     <div class="image">
                         <p class="title">
-                            ТЦ Манго <br/>
-                            пав-44
+                            <!-- ТЦ Манго <br/>
+                            пав-44 -->
+                            {{ room.title }}
                         </p>
-                        <p class="adress">Москва, ул. Щелковская, 12</p>
+                        <p class="adress">{{ room.address }}</p>
                     </div>
                     <div class="info">
                         <div class="triple-splitted">
                             <div class="label-group">
                                 <p class="title">тип</p>
-                                <p>Торговая</p>
+                                <p>{{ getTypeName(room.type) }}</p>
                             </div>
                             <div class="label-group">
                                 <p class="title">площадь</p>
-                                <p>30м<sup>2</sup></p>
+                                <p>{{ room.area }}м<sup>2</sup></p>
                             </div>
                             <div class="label-group">
                                 <p class="title">этаж</p>
-                                <p>1/3</p>
+                                <p>–</p>
                             </div>
                         </div>
                     </div>
@@ -179,17 +180,41 @@ export default {
     name: 'room',
     data() {
         return {
-            activeTab: 1,
-            type: ''
+            activeTab: 0,
+            type: '',
+            room: {}
         }
+    },
+    computed: {
+        token() {
+            return this.$store.state.token
+        },
+        user() {
+            return this.$store.state.user
+        },
+        types() {
+            return this.$store.state.types
+        },
     },
     methods: {
         routeTo(url) {
             this.$router.push(url)
-        }
+        },
+        getTypeName(id) {
+            return ((this.types || []).filter(type => type.id === id)[0] || {}).name
+        },
     },
-    created() {
-        // this.$route
+    async created() {
+        const { id } = this.$route.params
+        const { body } = await this.$http.get(`rooms/${id}`, {
+            headers: {
+                'Accept': 'application/json',
+                'Content-type': 'application/json',
+                'Authorization': `Bearer ${this.token}`,
+            }
+        })
+        console.log(body)
+        this.room = body
     },
     components: {
         SideMenu,

@@ -52,25 +52,26 @@
                   <th>Баланс</th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody v-for="room in rooms" :key="room.id">
                 <tr class="spacer"></tr>
-                <tr>
-                  <td>Ул. Планетная 28</td>
-                  <td>кв. 19</td>
+                <!-- <tr @click="() => routeTo(`room/${room.id}`)"> -->
+                <tr @click="() => routeTo(`room/${room.id}`)">
+                  <td>{{ room.address }}</td>
+                  <td>{{ room.title }}</td>
                   <td>–</td>
                   <td class="status">
                     <div class="free">
                       Свободно
                     </div>
                   </td>
-                  <td>Квартира</td>
-                  <td>54 м<sup>2</sup></td>
-                  <td>Yandex, Cian</td>
-                  <td>45000</td>
+                  <td>{{ getTypeName(room.type) }}</td>
+                  <td>{{ room.area }} м<sup>2</sup></td>
+                  <td>{{ room.integrations || '–' }}</td>
+                  <td>{{ room.rent }}</td>
                   <td>–</td>
                 </tr>
               </tbody>
-              <tbody>
+              <!-- <tbody>
                 <tr class="spacer"></tr>
                 <tr>
                   <td>Ул. Планетная 28</td>
@@ -107,7 +108,7 @@
                   <td>75000</td>
                   <td>–14000</td>
                 </tr>
-              </tbody>
+              </tbody> -->
             </table>
             <table v-else>
               <thead>
@@ -122,48 +123,18 @@
                   <th></th>
                 </tr>
               </thead>
-              <tbody>
+              <tbody v-for="lead in leads" :key="lead.id">
                 <tr class="spacer"></tr>
                 <tr>
-                  <td>Ул. Планетная 28</td>
-                  <td>Офис</td>
-                  <td>200 м<sup>2</sup></td>
-                  <td>55000 руб.</td>
-                  <td>Иван Раскольников</td>
-                  <td>+7 999 454 49 48</td>
-                  <td>ros-kol@mail.ru</td>
+                  <td>{{ getRoomProperty(lead.room_id, 'address') }}</td>
+                  <td>{{ getTypeName(getRoomProperty(lead.room_id, 'type')) }}</td>
+                  <td>{{ getRoomProperty(lead.room_id, 'area') }} м<sup>2</sup></td>
+                  <td>{{ getRoomProperty(lead.room_id, 'rent') }} руб.</td>
+                  <td>{{ lead.firstname + ' ' + lead.secondname }}</td>
+                  <td>{{ lead.phone }}</td>
+                  <td>{{ lead.email }}</td>
                   <td>
-                    <img class="hover" src="@/assets/shift.png" />
-                  </td>
-                </tr>
-              </tbody>
-              <tbody>
-                <tr class="spacer"></tr>
-                <tr>
-                  <td>Ул. Планетная 28</td>
-                  <td>Офис</td>
-                  <td>200 м<sup>2</sup></td>
-                  <td>55000 руб.</td>
-                  <td>Иван Раскольников</td>
-                  <td>+7 999 454 49 48</td>
-                  <td>ros-kol@mail.ru</td>
-                  <td>
-                    <img class="hover" src="@/assets/shift.png" />
-                  </td>
-                </tr>
-              </tbody>
-              <tbody>
-                <tr class="spacer"></tr>
-                <tr>
-                  <td>Ул. Планетная 28</td>
-                  <td>Офис</td>
-                  <td>200 м<sup>2</sup></td>
-                  <td>55000 руб.</td>
-                  <td>Иван Раскольников</td>
-                  <td>+7 999 454 49 48</td>
-                  <td>ros-kol@mail.ru</td>
-                  <td>
-                    <img class="hover" src="@/assets/shift.png" />
+                    <img @click="() => routeTo(`/new-commercial-offer/[${lead.id}, ${lead.room_id}]`)" class="hover" src="@/assets/shift.png" />
                   </td>
                 </tr>
               </tbody>
@@ -185,12 +156,14 @@ export default {
       query: '',
       squareMin: '',
       squareMax: '',
-      types: [],
       type: {},
       rentMin: '',
       rentMax: '',
       statuses: [],
-      status: {}
+      status: {},
+      rooms: [],
+      objects: [],
+      leads: [],
     }
   },
   computed: {
@@ -200,16 +173,46 @@ export default {
     user() {
       return this.$store.state.user
     },
+    types() {
+      return this.$store.state.types
+    }
   },
   methods: {
     checkForAuth() {
       if (!this.token) {
         this.$router.push('/signin')
       }
+    },
+    routeTo(url) {
+      this.$router.push(url)
+    },
+    getTypeName(id) {
+      return ((this.types || []).filter(type => type.id === id)[0] || {}).name
+    },
+    getRoomProperty(id, property) {
+      const room = this.rooms.filter(room => room.id === id)[0]
+      return room[property]
     }
   },
-  created() {
+  async created() {
     this.checkForAuth()
+    const { body } = await this.$http.get('rooms', { 
+      headers: {
+          'Accept': 'application/json',
+          'Content-type': 'application/json',
+          'Authorization': `Bearer ${this.token}`,
+      } 
+    })
+    this.rooms = body
+
+    const res = await this.$http.get('tenants', { 
+      headers: {
+          'Accept': 'application/json',
+          'Content-type': 'application/json',
+          'Authorization': `Bearer ${this.token}`,
+      } 
+    })
+    this.leads = res.body
   },
   components: {
     SideMenu,

@@ -25,7 +25,7 @@ export default {
                 {
                     id: 0,
                     name: 'Главная',
-                    url: '/profile',
+                    url: '/',
                     icon: 'home'
                 },
                 {
@@ -55,11 +55,22 @@ export default {
             ]
         }
     },
+    computed: {
+        token() {
+            return this.$store.state.token
+        },
+        user() {
+            return this.$store.state.user
+        },
+        types() {
+            return this.$store.state.types
+        }
+    },
     methods: {
         routeTo(url) {
             this.$router.push(url)
         }
-    }
+    },
 }
 </script>
 

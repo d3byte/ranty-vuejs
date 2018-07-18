@@ -5,10 +5,11 @@
         <ranty-header/>
         <div class="wrapper">
             <h2>Добавление контакта</h2>
+            <h4 v-if="success">Контакт добавлен</h4>
             <form @submit="e => e.preventDefault()">
                 <div class="form-group floating-label increased-font-size">
                     <input type="text" class="line-based" v-model="name" required />
-                    <label>Новый контакт</label>
+                    <label>Имя и фамилия</label>
                 </div>
                 <div class="half-splitted">
                     <div class="form-group floating-label">
@@ -21,10 +22,10 @@
                     </div>
                 </div>
                 <div class="half-splitted">
-                    <dropdown :items="units" :chosenItem="unit" v-model="unit" defaultLabel="Объект" />
-                    <dropdown :items="types" :chosenItem="type" v-model="type" defaultLabel="Тип" />
+                    <dropdown :items="rooms" :chosenItem="room" v-model="room" defaultLabel="Помещение" />
+                    <!-- <dropdown :items="types" :chosenItem="type" v-model="type" defaultLabel="Тип" /> -->
                 </div>
-                <div class="half-splitted">
+                <!-- <div class="half-splitted">
                     <div class="form-group floating-label">
                         <input type="num" class="line-based" v-model="square" required />
                         <label>Площадь</label>
@@ -33,8 +34,8 @@
                         <input type="num" class="line-based" v-model="rent" required />
                         <label>Арендная плата</label>
                     </div>
-                </div>
-                <textarea rows="4">Комментарий</textarea>
+                </div> -->
+                <textarea rows="4" v-model="comment">Комментарий</textarea>
                 <div class="triple-splitted">
                     <div class="form-group checkbox">
                         <input type="checkbox" id="remember-me" v-model="remind" />
@@ -49,7 +50,7 @@
                         <input type="text" class="line-based" v-model="time" />
                     </div>
                 </div>
-                <button class="square-like yellow">Добавить</button>
+                <button class="square-like yellow" @click="submit">Добавить</button>
             </form>
         </div>
     </main>
@@ -61,27 +62,27 @@ import SideMenu from '@/components/SideMenu.vue'
 import Header from '@/components/Header.vue'
 import Dropdown from '@/components/Dropdown.vue'
 export default {
-    name: 'add-unit',
+    name: 'add-lead',
     data() {
         return {
             name: '',
             phone: '',
             email: '',
-            square: '',
-            rent: '',
+            // square: '',
+            // rent: '',
             types: [ 
-                { id: 0, name: 'Офис' }, { id: 1, name: 'Торговая площадь' },
-                { id: 2, name: 'Склад' }, { id: 3, name: 'ПСН' },
-                { id: 4, name: 'Общепит' }, { id: 5, name: 'Гараж' },
-                { id: 6, name: 'Производство' }, { id: 7, name: 'Автосервис' },
-                { id: 8, name: 'Готовый бизнес' }, { id: 9, name: 'Здание' },
-                { id: 10, name: 'Бытовые услуги' }
+                { id: 0, name: 'Торговая' }, { id: 1, name: 'Жилая' },
+                { id: 2, name: 'Промышленная' }, { id: 3, name: 'Общепит' },
+                { id: 4, name: 'Офис' }
             ],
             type: {},
-            units: [],
-            unit: {},
+            rooms: [],
+            room: {},
             date: '',
-            time: ''
+            time: '',
+            remind: false,
+            comment: '',
+            success: false
         }
     },
     computed: {
@@ -91,6 +92,12 @@ export default {
         user() {
             return this.$store.state.user
         },
+        firstName() {
+            return this.name.split(' ')[0] || ''
+        },
+        lastName() {
+            return this.name.split(' ')[1] || ''
+        },
     },
     methods: {
         addRoom() {
@@ -99,14 +106,48 @@ export default {
         removeRoom(index) {
             this.rooms = this.rooms.filter(room => room.index !== index)
         },
+        submit() {
+            const { name, phone, square, rent, type, unit, date, time } = this
+        },
         checkForAuth() {
             if (!this.token) {
                 this.$router.push('/signin')
+            }
+        },
+        async getrooms() {
+            const { body } = await this.$http.get('rooms', { 
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-type': 'application/json',
+                    'Authorization': `Bearer ${this.token}`,
+                } 
+            })
+            this.rooms = body
+        },
+        async submit() {
+            const body = {
+                room_id: this.room.id,
+                comments: this.comment,
+                phone: this.phone,
+                email: this.email,
+                firstname: this.firstName,
+                secondname: this.lastName,
+            }
+            const res = await this.$http.post('lead', body, {
+                headers: {
+                    'Accept': 'application/json',
+                    'Content-type': 'application/json',
+                    'Authorization': `Bearer ${this.token}`,
+                }
+            })
+            if (res.status === 201) {
+                this.success = true
             }
         }
     },
     created() {
         this.checkForAuth()
+        this.getrooms()
     },
     components: {
         SideMenu,
@@ -128,7 +169,11 @@ export default {
         font-weight: normal
         font-size: 20px
         text-align: center
-        margin-bottom: 60px
+        margin-bottom: 0
+
+    h4
+        marhin-bottom: 120px
+        text-align: center
 
     form
         max-width: 500px
