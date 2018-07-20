@@ -120,6 +120,7 @@
                   <th>Контакт</th>
                   <th>Телефон</th>
                   <th>Email</th>
+                  <th>Статус</th>
                   <th></th>
                 </tr>
               </thead>
@@ -133,6 +134,7 @@
                   <td>{{ lead.firstname + ' ' + lead.secondname }}</td>
                   <td>{{ lead.phone }}</td>
                   <td>{{ lead.email }}</td>
+                  <td>{{ getLeadStatus(lead.confirmed) }}</td>
                   <td>
                     <img @click="() => routeTo(`/new-commercial-offer/[${lead.id}, ${lead.room_id}]`)" class="hover" src="@/assets/shift.png" />
                   </td>
@@ -192,6 +194,14 @@ export default {
     getRoomProperty(id, property) {
       const room = this.rooms.filter(room => room.id === id)[0]
       return room[property]
+    },
+    getLeadStatus(id) {
+      switch(id) {
+        case 0:
+          return 'Ожидание'
+        case 2:
+          return 'Отказано'
+      }
     }
   },
   async created() {

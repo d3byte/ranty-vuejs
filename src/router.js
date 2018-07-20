@@ -10,6 +10,7 @@ import CommercialOffer from './pages/CommercialOffer.vue'
 import AddUnit from './pages/AddUnit.vue'
 import AddLead from './pages/AddLead.vue'
 import ConfirmOrCancelOffer from './pages/ConfirmOrCancelOffer.vue'
+import TenantPassword from './pages/TenantPassword.vue'
 
 
 Vue.use(Router)
@@ -58,9 +59,19 @@ export default new Router({
       component: AddLead
     },
     {
-      path: '/tenant/:action/:token',
-      name: 'Подтвердить или отклонить предложение',
+      path: '/tenant/confirm/:token',
+      name: 'Подтвердить предложение',
       component: ConfirmOrCancelOffer,
+    },
+    {
+      path: '/tenant/cancel/:token',
+      name: 'Отклонить предложение',
+      component: ConfirmOrCancelOffer,
+    },
+    {
+      path: '/tenant/password/:token',
+      name: 'Завершить регистрацию тенанта',
+      component: TenantPassword,
     },
     {
       path: '*',

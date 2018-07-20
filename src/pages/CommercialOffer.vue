@@ -321,7 +321,7 @@ export default {
                     company_name: this.organization,
                     inn: this.inn,
                     term: this.rentTime,
-                    pay: this.rent,
+                    pay: this.payTime,
                     deposit: this.deposit,
                     index: this.index,
                     rent_holiday: JSON.stringify(this.formatHolidays()),
@@ -329,7 +329,7 @@ export default {
                     gvs: this.variablePayments[1].value ? 1 : 0,
                     hvs: this.variablePayments[2].value ? 1 : 0,
                     hot: this.variablePayments[3].value ? 1 : 0,
-                    pay_perem: this.payTime,
+                    pay_perem: this.pay_perem,
                     penalties: this.penalties,
                 },
             }

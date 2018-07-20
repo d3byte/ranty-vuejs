@@ -1,7 +1,14 @@
 <template>
 <div class="confirm-offer">
-    <h4 v-if="loading && !error" class="status">Подтверждается...</h4>
-    <h4 v-else-if="!loading && !error" class="status">Подтверждено!</h4>
+    <h4 v-if="loading && !error && confirm" class="status">Подтверждаем...</h4>
+    <h4 v-else-if="!loading && !error && confirm" class="status">
+        Подтверждено!<br/>
+        Мы выслали вам на почту письмо с ссылкой на ввод пароля
+    </h4>
+    <h4 v-if="loading && !error && !confirm" class="status">Отклоняем...</h4>
+    <h4 v-else-if="!loading && !error && !confirm" class="status">
+        Предложение отклонено
+    </h4>
     <h4 v-if="error">{{ error }}</h4>
     <button v-if="!loading" class="square-like yellow" @click="() => routeTo('/')">Вернуться</button>
 </div>
@@ -14,7 +21,8 @@ export default {
     data() {
         return {
             loading: true,
-            error: ''
+            error: '',
+            confirm: false
         }
     },
     methods: {
@@ -23,13 +31,16 @@ export default {
         },
     },
     async created() {
+        if (this.$route.path.slice(0, 15) === '/tenant/confirm') {
+            this.confirm = true
+        }
         const { body } = await this.$http.get(this.$route.path.slice(1))
         if (body.error) {
             this.error = body.error
             this.loading = false
             return
         }
-        
+        this.loading = false
     },
 }
 </script>
